@@ -9,9 +9,12 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
+import { User } from 'src/entities/user.entity';
+import { GetUser } from 'src/user/get-user.decorator';
 import { UserGuard } from 'src/user/user.guard';
 import { ProductCreateDto } from './dto/product-create.dto';
 import { ProductUpdateDto } from './dto/product-update.dto';
+import { ProductStatus } from './product.enum';
 import { ProductService } from './product.service';
 
 @UseGuards(UserGuard)
@@ -25,8 +28,8 @@ export class ProductController {
   }
 
   @Post()
-  async create(@Body() body: ProductCreateDto) {
-    return this.productService.create(body);
+  async create(@Body() body: ProductCreateDto, @GetUser() user: User) {
+    return this.productService.createProduct(body, user);
   }
 
   @Get(':product_id')

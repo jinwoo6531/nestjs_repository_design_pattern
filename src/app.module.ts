@@ -11,7 +11,6 @@ import 'dotenv/config';
     UserModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      // host: 'flowingdb.cctvlzapkl4m.ap-northeast-2.rds.amazonaws.com',
       host: process.env.DB_HOST,
       port: +process.env.DB_PORT,
       username: process.env.DB_USER,

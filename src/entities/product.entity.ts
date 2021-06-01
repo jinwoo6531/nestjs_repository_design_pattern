@@ -4,9 +4,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
   ManyToOne,
-  //  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { User } from './user.entity';
@@ -50,7 +48,6 @@ export class Product {
   })
   modified_at: Date;
 
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'store_id' })
-  store: User;
+  @ManyToOne((type) => User, (user) => user.products, { eager: false })
+  user: User;
 }

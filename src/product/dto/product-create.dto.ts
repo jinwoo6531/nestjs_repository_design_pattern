@@ -22,5 +22,6 @@ export class ProductCreateDto {
   @IsNotEmpty()
   product_extra_price: number;
 
-  store_id?: number;
+  @IsNotEmpty()
+  store_id: number;
 }

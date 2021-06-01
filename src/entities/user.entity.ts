@@ -2,11 +2,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   Unique,
 } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
 import { Exclude } from 'class-transformer';
+import { Product } from './product.entity';
 
 @Entity({ name: 'store' })
 @Unique(['store_name'])
@@ -61,6 +63,9 @@ export class User {
     name: 'modified_at',
   })
   modified_at: Date;
+
+  @OneToMany((type) => Product, (product) => product.user, { eager: true })
+  products: Product[];
 
   async validatePassword(password: string): Promise<boolean> {
     const hash = await bcrypt.hash(password, this.salt);

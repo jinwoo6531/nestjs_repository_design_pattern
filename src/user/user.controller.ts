@@ -71,12 +71,14 @@ export class UserController {
     }
     const jwt = await this.jwtService.signAsync({ id: store.store_id });
     response.cookie('jwt', jwt, { httpOnly: true });
-    return store;
+    // return store;
+    return '로그인 성공';
   }
 
   @UseGuards(UserGuard)
   @Get('store')
   async store(@Req() request: Request) {
+    //현재 cookie 가져오기
     const cookie = request.cookies['jwt'];
 
     const data = await this.jwtService.verifyAsync(cookie);
@@ -91,7 +93,7 @@ export class UserController {
     response.clearCookie('jwt');
 
     return {
-      message: 'Success',
+      message: '로그아웃 성공',
     };
   }
 
