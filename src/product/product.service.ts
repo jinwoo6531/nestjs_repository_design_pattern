@@ -32,8 +32,6 @@ export class ProductService extends AbstractService {
     productCreateDto: ProductCreateDto,
     user: User,
   ): Promise<Product> {
-    console.log(445, user);
-
     const {
       product_title,
       product_price,
