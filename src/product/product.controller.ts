@@ -14,7 +14,6 @@ import { GetUser } from 'src/user/get-user.decorator';
 import { UserGuard } from 'src/user/user.guard';
 import { ProductCreateDto } from './dto/product-create.dto';
 import { ProductUpdateDto } from './dto/product-update.dto';
-import { ProductStatus } from './product.enum';
 import { ProductService } from './product.service';
 
 @UseGuards(UserGuard)
@@ -29,7 +28,8 @@ export class ProductController {
 
   @Post()
   async create(@Body() body: ProductCreateDto, @GetUser() user: User) {
-    return this.productService.createProduct(body, user);
+    // return this.productService.createProduct(body, user);
+    console.log(body);
   }
 
   @Get(':product_id')

@@ -36,22 +36,29 @@ export class ProductService extends AbstractService {
       product_title,
       product_price,
       product_discount_price,
-      product_start_at,
-      product_end_at,
-      product_stock,
-      product_extra_price,
+      // product_start_at,
+      // product_end_at,
+      // product_stock,
+      // product_extra_price,
+      product_category,
+      product_keyword,
+      product_account,
     } = productCreateDto;
 
     const product = new Product();
+
     product.product_title = product_title;
     product.product_price = product_price;
     product.product_discount_price = product_discount_price;
-    product.product_start_at = product_start_at;
-    product.product_end_at = product_end_at;
-    product.product_stock = product_stock;
+    product.product_category = product_category;
+    product.product_keyword = product_keyword;
+    product.product_account = product_account;
+    // product.product_start_at = product_start_at;
+    // product.product_end_at = product_end_at;
+    // product.product_stock = product_stock;
     product.product_use_yn = ProductStatus.Y;
-    product.product_extra_pridce = product_extra_price;
-    product.user = user;
+    // product.product_extra_pridce = product_extra_price;
+    user;
 
     // const product = this.productRepository.create({
     //   product_title,

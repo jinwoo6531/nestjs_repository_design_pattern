@@ -5,23 +5,32 @@ export class ProductCreateDto {
   product_title: string;
 
   @IsNotEmpty()
+  product_image: string;
+
+  @IsNotEmpty()
   product_price: number;
 
   @IsNotEmpty()
   product_discount_price: number;
 
   @IsNotEmpty()
-  product_start_at: Date;
+  product_account: string;
+
+  // @IsNotEmpty()
+  // product_start_at: Date;
+
+  // @IsNotEmpty()
+  // product_end_at: Date;
+
+  // @IsNotEmpty()
+  // product_stock: number;
 
   @IsNotEmpty()
-  product_end_at: Date;
+  product_category: string;
 
   @IsNotEmpty()
-  product_stock: number;
+  product_keyword: string;
 
-  @IsNotEmpty()
-  product_extra_price: number;
-
-  @IsNotEmpty()
-  store_id: number;
+  // @IsNotEmpty()
+  // product_extra_price: number;
 }
